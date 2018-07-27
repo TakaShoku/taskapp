@@ -10,6 +10,13 @@ import UIKit
 
 class InputViewController: UIViewController {
 
+    @IBOutlet var titleTextField: UITextField!
+    
+    @IBOutlet var contentsTextView: UITextView!
+    
+    @IBOutlet var datePicker: UIDatePicker!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

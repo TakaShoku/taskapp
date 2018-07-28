@@ -100,5 +100,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             inputViewController.task = task
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 }
 

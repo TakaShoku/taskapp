@@ -10,8 +10,10 @@ import UIKit
 import RealmSwift   // ←追加
 import UserNotifications
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
+    
+    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     var task: Task!
     
@@ -29,12 +31,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        searchBar.delegate = self as UISearchBarDelegate
+        searchBar.showsCancelButton = true
+        //プレースホルダの指定
+        searchBar.placeholder = "検索"
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("検索完了")
+    }
+    
+    func searBarCancelButtonClicked(_ seachBar: UISearchBar) {
+        print("キャンセル完了")
+    }
+    
+    
     
     // MARK: UITableViewDataSourceプロトコルのメソッド
     // データの数（＝セルの数）を返すメソッド

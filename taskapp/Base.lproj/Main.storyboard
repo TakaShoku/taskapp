@@ -18,8 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="qGb-YJ-rMk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1Io-W2-jUx"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="V3x-Wy-Bna"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JmE-fU-KK8">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="6f7-Gf-bPJ" detailTextLabel="YxZ-tu-GXQ" style="IBUITableViewCellStyleSubtitle" id="5yY-SZ-EGG">
@@ -51,10 +61,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="JmE-fU-KK8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1vR-en-R7z"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JmE-fU-KK8" secondAttribute="bottom" id="2pb-mk-qHc"/>
-                            <constraint firstItem="JmE-fU-KK8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4oJ-xq-eoA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JmE-fU-KK8" secondAttribute="trailing" id="kUp-bF-rDn"/>
+                            <constraint firstItem="JmE-fU-KK8" firstAttribute="top" secondItem="qGb-YJ-rMk" secondAttribute="bottom" id="9V9-sq-odH"/>
+                            <constraint firstAttribute="bottom" secondItem="JmE-fU-KK8" secondAttribute="bottom" id="SCf-MK-fTE"/>
+                            <constraint firstItem="JmE-fU-KK8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XO3-eJ-jNy"/>
+                            <constraint firstItem="qGb-YJ-rMk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cde-vL-0dl"/>
+                            <constraint firstItem="qGb-YJ-rMk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="clM-rO-bYQ"/>
+                            <constraint firstItem="qGb-YJ-rMk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dWF-qZ-FMn"/>
+                            <constraint firstItem="JmE-fU-KK8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="g5a-Q5-bHE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -66,13 +79,24 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="qGb-YJ-rMk" id="49n-A2-uZb"/>
+                        <outlet property="searchDisplayController" destination="cjJ-mG-8gl" id="L78-QW-CQd"/>
                         <outlet property="tableView" destination="JmE-fU-KK8" id="aSv-wt-8fx"/>
                         <segue destination="GUM-CX-8Sn" kind="show" identifier="cellSegue" id="XVq-od-mvc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="cjJ-mG-8gl">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="T0j-tJ-K0H"/>
+                        <outlet property="searchBar" destination="qGb-YJ-rMk" id="KGL-LC-Hcc"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="Cuz-I1-pzX"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="zgd-3k-o9r"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="JRj-zg-RT3"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1558" y="793"/>
+            <point key="canvasLocation" x="1557.5999999999999" y="792.95352323838085"/>
         </scene>
         <!--Input View Controller-->
         <scene sceneID="aHl-5p-eyX">

@@ -49,22 +49,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print("検索完了")
     }
     
-    // キーボードが表示を監視
-    override func viewWillAppear(_ animated: Bool) {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: Selector(("handleKeyboardWillShowNotification:")), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-    }
-    
-    // キーボードが表示されるときにキャンセルボタンを有効に
-    func handleKeyboardWillShowNotification(notification: NSNotification) {
-        searchBar.showsCancelButton = true
-    }
     
     func searBarCancelButtonClicked(_ seachBar: UISearchBar) {
         // キャンセルボタンが押されたらキャンセルボタンを無効にしてフォーカスをはずす
         searchBar.showsCancelButton = false
         searchBar.resignFirstResponder()
-        print("キャンセル完了")
     }
     
     

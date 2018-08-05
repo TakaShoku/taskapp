@@ -14,6 +14,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     
     @IBOutlet var searchBar: UISearchBar!
+    
+    
     @IBOutlet var tableView: UITableView!
     var task: Task!
     
@@ -46,14 +48,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("検索完了")
+        self.view.endEditing(true)
+        searchBar.showsCancelButton = true
+        self.tableView.reloadData()
     }
     
     
     func searBarCancelButtonClicked(_ seachBar: UISearchBar) {
         // キャンセルボタンが押されたらキャンセルボタンを無効にしてフォーカスをはずす
         searchBar.showsCancelButton = false
-        searchBar.resignFirstResponder()
+        self.view.endEditing(true)
+        self.tableView.reloadData()
+    }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.showsCancelButton = true
+        return true
     }
     
     
@@ -142,9 +152,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        tableView.reloadData()
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 }
 

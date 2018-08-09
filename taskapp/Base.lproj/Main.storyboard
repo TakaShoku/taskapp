@@ -79,7 +79,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="qGb-YJ-rMk" id="49n-A2-uZb"/>
+                        <outlet property="searchBar" destination="qGb-YJ-rMk" id="vpR-Na-Saf"/>
                         <outlet property="searchDisplayController" destination="cjJ-mG-8gl" id="L78-QW-CQd"/>
                         <outlet property="tableView" destination="JmE-fU-KK8" id="aSv-wt-8fx"/>
                         <segue destination="GUM-CX-8Sn" kind="show" identifier="cellSegue" id="XVq-od-mvc"/>
@@ -89,7 +89,6 @@
                 <searchDisplayController id="cjJ-mG-8gl">
                     <connections>
                         <outlet property="delegate" destination="BYZ-38-t0r" id="T0j-tJ-K0H"/>
-                        <outlet property="searchBar" destination="qGb-YJ-rMk" id="KGL-LC-Hcc"/>
                         <outlet property="searchContentsController" destination="BYZ-38-t0r" id="Cuz-I1-pzX"/>
                         <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="zgd-3k-o9r"/>
                         <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="JRj-zg-RT3"/>
@@ -213,6 +212,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XVq-od-mvc"/>
+        <segue reference="GFM-rD-qcX"/>
     </inferredMetricsTieBreakers>
 </document>

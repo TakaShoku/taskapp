@@ -13,10 +13,10 @@ import UserNotifications
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     
+    
     @IBOutlet var searchBar: UISearchBar!
-    
-    
     @IBOutlet var tableView: UITableView!
+    
     var task: Task!
     
     // Realmインスタンスを取得する
@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
-        searchBar.delegate = self as UISearchBarDelegate
+        searchBar.delegate = self
         
         //プレースホルダの指定
         searchBar.placeholder = "検索"
@@ -47,17 +47,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
         searchBar.showsCancelButton = true
         self.tableView.reloadData()
     }
     
     
-    func searBarCancelButtonClicked(_ seachBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ seachBar: UISearchBar) {
         // キャンセルボタンが押されたらキャンセルボタンを無効にしてフォーカスをはずす
         searchBar.showsCancelButton = false
         self.view.endEditing(true)
+        searchBar.text = ""
         self.tableView.reloadData()
     }
     

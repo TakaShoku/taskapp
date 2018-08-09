@@ -33,7 +33,6 @@ class InputViewController: UIViewController {
         // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
-        
         titleTextField.text = task.title
         categoryTextField.text = task.category
         contentsTextView.text = task.contents
@@ -72,6 +71,11 @@ class InputViewController: UIViewController {
             content.title = "(タイトルなし)"
         } else {
             content.title = task.title
+        }
+        if task.category == "" {
+            content.title = "（カテゴリなし）"
+        } else {
+            content.title = task.category
         }
         if task.contents == "" {
             content.body = "(内容なし)"
